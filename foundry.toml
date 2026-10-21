@@ -1,0 +1,52 @@
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+out = "out"
+libs = ["lib"]
+solc = "0.8.30"
+gas_snapshot_emit = false
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+via_ir = true
+bytecode_hash = "none"
+fs_permissions = [{ access = "read", path = "./test/reference/benchmark-artifacts" }]
+gas_reports = ["ConcentratedRangeBook", "RangeBookRouter", "RangeBookPositionManager"]
+remappings = [
+    "forge-std/=lib/forge-std/src/",
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/"
+]
+
+[profile.default.fuzz]
+runs = 512
+
+[profile.default.invariant]
+runs = 128
+depth = 128
+fail_on_revert = true
+show_metrics = true
+
+[profile.ci.fuzz]
+runs = 4096
+seed = "0x827b"
+
+[profile.ci.invariant]
+runs = 256
+depth = 256
+fail_on_revert = true
+
+[profile.deep.fuzz]
+runs = 10000
+
+[profile.deep.invariant]
+runs = 512
+depth = 512
+fail_on_revert = true
+
+[fmt]
+ignore = ["src/vendor/**", "test/reference/**"]
+line_length = 120
+tab_width = 4
+bracket_spacing = true
+number_underscore = "thousands"

@@ -1,0 +1,30 @@
+# Build output and local measurements
+out/
+cache/
+broadcast/
+snapshots/
+.gas-snapshot
+coverage/
+reports/
+lcov.info
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+keystore/
+keystores/
+.tools/
+.aws/
+.codex/
+.agents/
+
+# Editor and Python output
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
